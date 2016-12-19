@@ -44,8 +44,8 @@ def CheckUrlStatus(StartMap):
             robots = 'Non-Crawlable'
         #print(sitepage,status,robots)
         root.update()
-        with open('output.txt','a') as file:
-            String = str(sitepage) + ',' + str(status) + ',' + str(robots) + '\n'
+        with open('output.csv','a',encoding='utf-8') as file:
+            String = '"{}","{}","{}"'.format(sitepage,status,robots)
             file.write(String)
         Pages = len(Done)
         ApplicationMessage.set('Pages completed {}'.format(Pages))
